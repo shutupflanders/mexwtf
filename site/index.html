@@ -1,0 +1,19 @@
+---
+layout: default
+title: Mex Said...
+overview: true
+---
+<main class="grid min-h-full place-items-center bg-white py-24 px-6 sm:py-32 lg:px-8">
+    <div class="text-center">
+        <p class="text-base font-semibold text-indigo-600">{{ page.title }}</p>
+        <h1 id="inspirational-quote" class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl"></h1>
+        <p class="mt-6 text-base leading-7 text-gray-600">Goodbye.</p>
+    </div>
+</main>
+<script type="text/javascript">
+    const quotes = {{ site.data.inspirational-quotes | jsonify}};
+    window.addEventListener("load", (event) => {
+        document.getElementById('inspirational-quote').innerText = quotes[Math.floor(Math.random()*quotes.length)];
+    });
+
+</script>
