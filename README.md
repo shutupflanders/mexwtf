@@ -4,7 +4,7 @@ Inspirational quotes from Mex.
 
 ### Add New Quote
 
-modify `/site/_data/inspirational-quotes.json` and add a new line, like so:
+modify `/docs/_data/inspirational-quotes.json` and add a new line, like so:
 
 ```json
 [
