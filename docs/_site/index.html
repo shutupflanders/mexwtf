@@ -64,19 +64,23 @@
             </button>
         </div>
     </div>
-    <div class="text-center">
-        <p class="text-base font-semibold text-indigo-600">Mex Said...</p>
-        <h1 id="inspirational-quote" class="mt-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-200 sm:text-5xl"></h1>
-        <p class="mt-6 text-base leading-7 text-gray-600 dark:text-gray-500">Do with this what you will.</p>
+    <div class="text-center flex flex-col gap-y-4 mx-auto">
+        <p class="grow text-base font-semibold text-indigo-600">Mex Said...</p>
+        <h1 id="inspirational-quote" class="grow mt-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-200 sm:text-5xl"></h1>
+        <button onclick="getQuote();" type="button" class="max-w-xs mx-auto mt-10 rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            What else did Mex say?
+        </button>
+
     </div>
     <a target="_blank" title="View on GitHub" class="rounded-lg text-slate-900 font-semibold transition flex items-center gap-3 text-[0.8125rem] leading-6 py-1 px-1.5 hover:bg-slate-900/[0.03] -my-1 -mx-1.5" href="https://github.com/shutupflanders/mexwtf">
-        <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-slate-900">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-gray-900 dark:fill-gray-200">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0 1 12 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48 3.97-1.32 6.833-5.054 6.833-9.458C22 6.463 17.522 2 12 2Z"></path>
         </svg>
     </a>
 </main>
 <script type="text/javascript">
-    const quotes = ["Fuck the bed.","Fucking around the tree.","Zoot Alors! Pantalon Bleu","She smells, her seat smells, the sea fucking smells!","Lizards are \"Looking easy to fuck after\"."];
+    const quotes = ["Fuck the bed.","Fucking around the tree.","Zoot Alors! Pantalon Bleu","She smells, her seat smells, the sea fucking smells!","Lizards are \"Looking easy to fuck after\".","Ready or come, here I'm not","Prize minning welons","Take a page out of my leaf","Hats and flouses (flats and houses)"];
+    let quotesToRead = [];
 
     var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -130,8 +134,21 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
-        document.getElementById('inspirational-quote').innerText = quotes[Math.floor(Math.random()*quotes.length)];
+
+        getQuote();
     });
+
+    const getQuote = () => {
+
+        if(quotesToRead.length < 1){
+            quotesToRead = [...quotes];
+        }
+
+        let idx = Math.floor(Math.random()*quotesToRead.length);
+        document.getElementById('inspirational-quote').innerText = quotesToRead[idx];
+        quotesToRead.splice(idx, 1);
+
+    }
 </script>
 
   <footer>

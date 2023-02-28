@@ -12,3 +12,13 @@ modify `/docs/_data/inspirational-quotes.json` and add a new line, like so:
   "This is a new quote." <-- do not leave a trailing comma.
 ]
 ```
+
+### Development
+
+Modify the files you wish and then run :
+
+```bash
+docker run -it -p 4000:4000 -v $(pwd)/docs:/site itzg/jekyll-github-pages
+```
+
+Application should be available on `localhost:4000`
